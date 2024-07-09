@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://twk300vv6e7j"]
+
+[ext_resource type="PackedScene" uid="uid://bmfd3ruyovf2i" path="res://main_editor/swatchboard/swatch.tscn" id="1_x7lhv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="outerswatch" parent="." instance=ExtResource("1_x7lhv")]
+layout_mode = 0
+mouse_filter = 1
+
+[node name="outerswatch2" parent="." instance=ExtResource("1_x7lhv")]
+layout_mode = 0
+offset_left = 39.0
+offset_right = 79.0
+mouse_filter = 1
+
+[node name="outerswatch3" parent="." instance=ExtResource("1_x7lhv")]
+layout_mode = 0
+offset_left = 79.0
+offset_right = 119.0
+mouse_filter = 1
+
+[node name="outerswatch4" parent="." instance=ExtResource("1_x7lhv")]
+layout_mode = 0
+offset_left = 119.0
+offset_right = 159.0
+mouse_filter = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+layout_mode = 0
+offset_left = 159.0
+offset_right = 203.0
+offset_bottom = 39.0
+mouse_filter = 1
+
+[node name="brushbox" type="ItemList" parent="."]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_top = 44.0
+offset_right = 250.0
+offset_bottom = 294.0
+icon_scale = 0.7
+fixed_icon_size = Vector2i(32, 32)

@@ -1,0 +1,18 @@
+# PS :)
+G {
+
+	L|here are the numbers we looped:\n|12|name = new_line;
+	H;
+	B|clickable_button|pressed = PS:() {
+		for x in 1:20:new_line|text *= x * \n;
+	}
+	#	}
+	# T {
+	
+	#	}
+	# N {
+	
+#		}
+#     PS {
+#
+#		}

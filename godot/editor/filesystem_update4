@@ -1,0 +1,5 @@
+res://main_editor/editor.tscn
+res://theme/pixie_theme.tres
+res://main_editor/nodes.gd
+res://main_editor/swatchboard/swatchboard.tscn
+res://main_editor/bootsplash.tscn

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwpsjsqbym1bn"]
+
+[ext_resource type="Theme" uid="uid://b3l700823f32o" path="res://theme/pixie_theme.tres" id="1_ymygs"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ymygs")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(50, 36)
+size = Vector2i(800, 500)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+access = 2

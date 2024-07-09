@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7chgilv5s1on"]
+
+[ext_resource type="Script" path="res://dev/pixie_alpha_labels.gd" id="1_m84v3"]
+
+[node name="pixie_alphalabel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1843.0
+offset_bottom = -1019.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_m84v3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="labelcontainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="versionlabel" type="Label" parent="labelcontainer"]
+layout_mode = 2
+text = "version"
+
+[node name="fpslabel" type="Label" parent="labelcontainer"]
+layout_mode = 2
+text = "FPS"

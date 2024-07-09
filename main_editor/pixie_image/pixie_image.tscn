@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://6armck53flp7"]
+
+[ext_resource type="Script" path="res://main_editor/pixie_image/pixie_image.gd" id="2_sa52h"]
+
+[node name="pixie_image" type="Node2D"]
+script = ExtResource("2_sa52h")
+
+[node name="image_sprite" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 2
+
+[connection signal="gui_input" from="image_sprite" to="." method="_on_image_sprite_gui_input"]

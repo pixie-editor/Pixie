@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://brvodne1aqnq5"]
+
+[ext_resource type="Script" path="res://main_editor/pixie_image/pixie_image_window.gd" id="1_04qrm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_04qrm")
+
+[node name="canv" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="layers" type="Control" parent="canv"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 66.0
+offset_bottom = 40.0
+
+[node name="outer_region" type="TextureRect" parent="canv"]
+offset_right = 40.0
+offset_bottom = 40.0

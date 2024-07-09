@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cix4xvmk0ewow"]
+
+[ext_resource type="Theme" uid="uid://b3l700823f32o" path="res://theme/pixie_theme.tres" id="1_6gjoi"]
+[ext_resource type="Script" path="res://main_editor/dialogs/files.gd" id="2_tvqka"]
+
+[node name="file_popup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(600, 179)
+size = Vector2i(700, 700)
+visible = true
+theme = ExtResource("1_6gjoi")
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+script = ExtResource("2_tvqka")
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+visible = true
+
+[connection signal="canceled" from="FileDialog" to="FileDialog" method="_on_canceled"]
+[connection signal="file_selected" from="FileDialog" to="FileDialog" method="_on_file_selected"]

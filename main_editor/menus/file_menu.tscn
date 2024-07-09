@@ -1,0 +1,126 @@
+[gd_scene load_steps=3 format=3 uid="uid://c82umkwu2ac0x"]
+
+[ext_resource type="Theme" uid="uid://b3l700823f32o" path="res://theme/pixie_theme.tres" id="1_qp4xn"]
+[ext_resource type="Script" path="res://main_editor/menus/file_menu.gd" id="2_k131y"]
+
+[node name="file_menu" type="Control"]
+top_level = true
+z_index = 400
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = -1722.0
+offset_bottom = -756.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_qp4xn")
+script = ExtResource("2_k131y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_top = -150.0
+offset_right = 199.0
+offset_bottom = 337.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 196.0
+offset_bottom = 477.0
+
+[node name="new_image" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "new image"
+flat = true
+
+[node name="import_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "import image"
+flat = true
+
+[node name="import_layers_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "import layers"
+flat = true
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="new_proj_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "new project"
+flat = true
+
+[node name="open_proj_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "open project"
+flat = true
+
+[node name="import_proj_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "import project"
+flat = true
+
+[node name="save_proj_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "save project"
+flat = true
+
+[node name="save_proj_as_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "save project as"
+flat = true
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="export_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "export image"
+flat = true
+
+[node name="export_all_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "export all"
+flat = true
+
+[node name="export_proj_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "export project"
+flat = true
+
+[node name="close_proj_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "close project"
+flat = true
+
+[node name="HSeparator3" type="HSeparator" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="exit_men" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+text = "exit pixie"
+flat = true
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/new_image" to="." method="_on_new_image_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/import_men" to="." method="_on_open_men_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/exit_men" to="." method="_on_exit_men_pressed"]

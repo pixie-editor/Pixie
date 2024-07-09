@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bmfd3ruyovf2i"]
+
+[node name="outerswatch" type="ColorRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+
+[node name="swatchcolor" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 38.0
+offset_bottom = 38.0

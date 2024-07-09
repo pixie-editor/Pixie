@@ -1,0 +1,269 @@
+[gd_scene load_steps=13 format=3 uid="uid://dt3qlnmdd21ni"]
+
+[ext_resource type="Theme" uid="uid://b3l700823f32o" path="res://theme/pixie_theme.tres" id="1_uxsxi"]
+[ext_resource type="Script" path="res://main_editor/editor.gd" id="1_vv1lw"]
+[ext_resource type="PackedScene" uid="uid://c82umkwu2ac0x" path="res://main_editor/menus/file_menu.tscn" id="3_vi62h"]
+[ext_resource type="PackedScene" uid="uid://c7vh1wqik6xv1" path="res://main_editor/swatchboard/swatchboard.tscn" id="4_t84d8"]
+[ext_resource type="PackedScene" uid="uid://b7chgilv5s1on" path="res://main_editor/pixie_alpha_labels.tscn" id="5_uk85j"]
+
+[sub_resource type="Animation" id="Animation_ygutu"]
+resource_name = "editor_in"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("canvas/topbar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, -42), Vector2(2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("canvas/file_menu/CanvasLayer/ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -529), Vector2(0, -529)]
+}
+
+[sub_resource type="Animation" id="Animation_l7b1k"]
+resource_name = "editor_still"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("canvas/file_menu/CanvasLayer/ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -501)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("canvas/topbar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -49)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("canvas/swatchboard:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1928, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ohlpu"]
+resource_name = "file_close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("canvas/file_menu/CanvasLayer/ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -529)]
+}
+
+[sub_resource type="Animation" id="Animation_l4sve"]
+resource_name = "file_drop"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("canvas/file_menu/CanvasLayer/ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -529), Vector2(0, 42)]
+}
+
+[sub_resource type="Animation" id="Animation_pmdrn"]
+resource_name = "file_still"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("canvas/file_menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -228)]
+}
+
+[sub_resource type="Animation" id="Animation_w8hhx"]
+resource_name = "swatch_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("canvas/swatchboard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1928, 0), Vector2(1527, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n4vtk"]
+_data = {
+"editor_in": SubResource("Animation_ygutu"),
+"editor_still": SubResource("Animation_l7b1k"),
+"file_close": SubResource("Animation_ohlpu"),
+"file_drop": SubResource("Animation_l4sve"),
+"file_still": SubResource("Animation_pmdrn"),
+"swatch_in": SubResource("Animation_w8hhx")
+}
+
+[node name="editor" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1919.0
+offset_bottom = 1080.0
+theme = ExtResource("1_uxsxi")
+script = ExtResource("1_vv1lw")
+
+[node name="ui_animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n4vtk")
+}
+
+[node name="canvas" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="file_menu" parent="canvas" instance=ExtResource("3_vi62h")]
+z_index = 0
+offset_top = -263.0
+offset_bottom = -1122.0
+
+[node name="ColorRect" parent="canvas/file_menu/CanvasLayer" index="0"]
+offset_top = -529.0
+offset_bottom = -42.0
+
+[node name="VBoxContainer" parent="canvas/file_menu/CanvasLayer/ColorRect" index="0"]
+offset_top = 0.0
+offset_bottom = 475.0
+
+[node name="topbar" type="ColorRect" parent="canvas"]
+z_index = 5
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 0.039
+offset_left = 2.0
+offset_right = 0.0799561
+offset_bottom = -0.119999
+mouse_filter = 1
+theme = ExtResource("1_uxsxi")
+color = Color(0.796078, 0.490196, 0.627451, 1)
+
+[node name="edit_men" type="Button" parent="canvas/topbar"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 189.0
+offset_bottom = 42.0
+text = "edit"
+
+[node name="preferences" type="Button" parent="canvas/topbar"]
+layout_mode = 0
+offset_left = 189.0
+offset_right = 299.0
+offset_bottom = 42.0
+text = "options"
+
+[node name="preferences2" type="Button" parent="canvas/topbar"]
+layout_mode = 0
+offset_left = 304.0
+offset_right = 414.0
+offset_bottom = 42.0
+text = "import"
+
+[node name="preferences3" type="Button" parent="canvas/topbar"]
+layout_mode = 0
+offset_left = 412.0
+offset_right = 522.0
+offset_bottom = 42.0
+text = "generate"
+
+[node name="file_men" type="Button" parent="canvas/topbar"]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 94.0
+offset_bottom = 42.0
+text = "file"
+
+[node name="popups" type="Control" parent="canvas"]
+layout_mode = 3
+anchor_left = 0.308
+anchor_top = 0.305
+anchor_right = 0.756
+anchor_bottom = 0.685
+offset_left = 0.639954
+offset_top = -0.399994
+offset_right = 0.47998
+offset_bottom = 0.199951
+mouse_filter = 1
+
+[node name="pixie_alphalabel" parent="canvas" instance=ExtResource("5_uk85j")]
+offset_left = 11.0
+offset_top = 1014.0
+offset_right = -1832.0
+offset_bottom = -2.0
+
+[node name="cursor" type="TextureRect" parent="canvas"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="swatchboard" parent="canvas" instance=ExtResource("4_t84d8")]
+z_index = 7
+anchor_left = 0.796
+anchor_right = 1.003
+anchor_bottom = 0.997
+offset_left = 399.68
+offset_right = 399.24
+offset_bottom = 2.23999
+
+[node name="windows" type="Node2D" parent="."]
+position = Vector2(1, 47)
+
+[node name="maincam" type="Camera2D" parent="."]
+position = Vector2(964, 538)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[connection signal="pressed" from="canvas/topbar/file_men" to="." method="_on_file_men_pressed"]
+
+[editable path="canvas/file_menu"]
