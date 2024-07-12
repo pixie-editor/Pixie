@@ -149,6 +149,7 @@ _data = {
 }
 
 [node name="editor" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1919.0
@@ -183,8 +184,8 @@ anchors_preset = -1
 anchor_right = 1.001
 anchor_bottom = 0.039
 offset_left = 2.0
-offset_right = 0.0799561
-offset_bottom = -0.119999
+offset_right = 7.07996
+offset_bottom = -0.120003
 mouse_filter = 1
 theme = ExtResource("1_uxsxi")
 color = Color(0.796078, 0.490196, 0.627451, 1)
@@ -196,7 +197,7 @@ offset_right = 189.0
 offset_bottom = 42.0
 text = "edit"
 
-[node name="preferences" type="Button" parent="canvas/topbar"]
+[node name="Button" type="Button" parent="canvas/topbar"]
 layout_mode = 0
 offset_left = 189.0
 offset_right = 299.0
@@ -208,14 +209,14 @@ layout_mode = 0
 offset_left = 304.0
 offset_right = 414.0
 offset_bottom = 42.0
-text = "import"
+text = "new"
 
 [node name="preferences3" type="Button" parent="canvas/topbar"]
 layout_mode = 0
-offset_left = 412.0
-offset_right = 522.0
+offset_left = 396.0
+offset_right = 506.0
 offset_bottom = 42.0
-text = "generate"
+text = "view"
 
 [node name="file_men" type="Button" parent="canvas/topbar"]
 layout_mode = 0
@@ -263,6 +264,14 @@ position = Vector2(964, 538)
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -20
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1968.0
+offset_bottom = 1064.0
+color = Color(0.159457, 0.167258, 0.204838, 1)
 
 [connection signal="pressed" from="canvas/topbar/file_men" to="." method="_on_file_men_pressed"]
 

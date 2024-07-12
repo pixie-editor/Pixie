@@ -22,3 +22,4 @@ offset_bottom = 40.0
 [node name="outer_region" type="TextureRect" parent="canv"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2

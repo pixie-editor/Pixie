@@ -25,5 +25,5 @@ func load_image(image : Image = selected_image):
 	$image_sprite.texture = ImageTexture.create_from_image(image)
 
 func _on_image_sprite_gui_input(event):
-		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if Input.is_action_pressed("select"):
 			get_parent().get_parent().get_parent().do_select()

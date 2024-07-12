@@ -70,11 +70,11 @@ class Tool:
 		set_tool_image()
 	func set_tool_image():
 		var err = self.preview_image.load("res://theme/icons/tool.png")
-	func on_select():
+	func do_select(image):
 		pass
-	func on_alt():
+	func do_alt():
 		pass
-	func on_middle():
+	func do_middle():
 		pass
 	func set_cursor():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -134,13 +134,23 @@ class BaseBrush:
 		var err = self.preview_image.load("res://theme/icons/paintbrush.png")
 	func set_cursor():
 		var cursor_image = TextureRect.new()
-		print("base brush called")
 		cursor_image.texture = ImageTexture.create_from_image(brush.preview_image)
 		EDITOR.CURSOR = cursor_image
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		EDITOR.get_node("canvas").add_child(EDITOR.CURSOR)
-	func on_select():
-		pass
+	func do_select(img):
+		var imagepos = img.get_node("image_sprite").position
+		var mousepos = img.get_global_mouse_position()
+		var position_on_image = Vector2(mousepos.x - imagepos.x, mousepos.y - imagepos.y)
+		var n = len(brush.brush_x) - 1
+		var brush_x = brush.brush_x
+		var brush_y = brush.brush_y
+		var brush_a = brush.brush_a
+		for e in range(0, n):
+			img.selected_image.set_pixelv(
+				Vector2i(brush_x[e] + position_on_image.x, brush_y[e] + position_on_image.y),
+				Color(EDITOR.color[0], EDITOR.color[1], EDITOR.color[2], brush_a[e]))
+		img.load_image()
 	func get_options():
 		var swatch_sel_sc = load("res://main_editor/swatchboard/swatch_selector.tscn")
 		var swatch_sel = swatch_sel_sc.instantiate()

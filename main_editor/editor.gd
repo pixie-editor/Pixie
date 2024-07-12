@@ -12,6 +12,7 @@ var CURSOR = null
 var DRAGGING = false
 var selected_window : Control
 var selected_nodes = []
+var color = Color(1, 2, 3, 1.0)
 var tool : Nodes.Tool
 
 func _ready():
@@ -34,6 +35,7 @@ func _process(delta):
 		pass
 	if CURSOR != null:
 		CURSOR.position = get_viewport().get_mouse_position()
+		CURSOR.scale = Vector2(zoom_level, zoom_level)
 	# camera movement
 	var input_vector = Vector2.ZERO
 	var current_anim : String = "idle-"
@@ -58,18 +60,16 @@ func _on_file_men_pressed():
 
 func load_tools(message : Label, prog : ProgressBar):
 	message.text = "loading tool configurations"
-	var cursor_tool = Nodes.Tool.new()
-	cursor_tool.name = "multi-select"
 	var dirs = Nodes.readdir("user://tools")
 	var max_prog = len(dirs) / (100 - prog.value)
+	Nodes.tools.append(Nodes.Select.new())
+	tool = Nodes.tools[0]
 	for file in dirs:
 		message.text = "reading tools ... " + file 
 		file = FileAccess.open("user://tools/" + file, FileAccess.READ)
 		var content = file.get_as_text()
 		Nodes.append_tools_from_string(content, message, prog, max_prog)
-	Nodes.tools.append(Nodes.Select.new())
 	Nodes.tools.append(Nodes.BaseBrush.new())
-
 func load_ps(path : String):
 	var actions : Dictionary = {}
 	var loaded_data = ""

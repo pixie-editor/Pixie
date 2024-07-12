@@ -1,47 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://twk300vv6e7j"]
+[gd_scene load_steps=4 format=3 uid="uid://twk300vv6e7j"]
 
-[ext_resource type="PackedScene" uid="uid://bmfd3ruyovf2i" path="res://main_editor/swatchboard/swatch.tscn" id="1_x7lhv"]
+[ext_resource type="Script" path="res://main_editor/swatchboard/swatch_selector.gd" id="1_1j204"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cb3da"]
+bg_color = Color(0.564962, 0.564962, 0.564962, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
-[node name="outerswatch" parent="." instance=ExtResource("1_x7lhv")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wngua"]
+bg_color = Color(0.10748, 0.10748, 0.10748, 1)
+
+[node name="ColorRect" type="ColorRect"]
+z_index = 5
+offset_right = 388.0
+offset_bottom = 296.0
+color = Color(0.495584, 0.266914, 0.881404, 1)
+script = ExtResource("1_1j204")
+
+[node name="colorselect" type="ColorPickerButton" parent="."]
 layout_mode = 0
+offset_left = 202.0
+offset_top = 1.0
+offset_right = 249.0
+offset_bottom = 43.0
 mouse_filter = 1
-
-[node name="outerswatch2" parent="." instance=ExtResource("1_x7lhv")]
-layout_mode = 0
-offset_left = 39.0
-offset_right = 79.0
-mouse_filter = 1
-
-[node name="outerswatch3" parent="." instance=ExtResource("1_x7lhv")]
-layout_mode = 0
-offset_left = 79.0
-offset_right = 119.0
-mouse_filter = 1
-
-[node name="outerswatch4" parent="." instance=ExtResource("1_x7lhv")]
-layout_mode = 0
-offset_left = 119.0
-offset_right = 159.0
-mouse_filter = 1
-
-[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
-layout_mode = 0
-offset_left = 159.0
-offset_right = 203.0
-offset_bottom = 39.0
-mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_cb3da")
+color = Color(1, 1, 1, 1)
 
 [node name="brushbox" type="ItemList" parent="."]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 0
 offset_top = 44.0
-offset_right = 250.0
-offset_bottom = 294.0
+offset_right = 387.0
+offset_bottom = 297.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wngua")
 icon_scale = 0.7
 fixed_icon_size = Vector2i(32, 32)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_right = 200.0
+offset_bottom = 44.0
+color = Color(0.345098, 0.203922, 0.203922, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 150.0
+offset_bottom = 44.0
+color = Color(0.811944, 0.643376, 0.668022, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 100.0
+offset_bottom = 44.0
+color = Color(0.944582, 0.6534, 0.463502, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 44.0
+color = Color(0.771649, 0.55527, 0.836535, 1)
+
+[connection signal="color_changed" from="colorselect" to="." method="_on_colorselect_color_changed"]

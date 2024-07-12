@@ -16,6 +16,7 @@ func _process(delta):
 
 func _on_toolbox_item_selected(i):
 	var tool = Nodes.tools[EDITOR.selected_window.selected_tools[i - 1]]
+	EDITOR.tool = tool
 	var options = $swatchboardbg/toolboxoptions
 	tool.set_cursor()
 	for child in options.get_children():

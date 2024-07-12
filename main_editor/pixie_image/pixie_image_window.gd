@@ -4,6 +4,7 @@ var piximg = null
 var image_name : String = ""
 var active : bool = false
 var selected_tools = []
+var active_layer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for e in range(1, len(Nodes.tools)):
@@ -58,7 +59,12 @@ func do_select():
 		EDITOR.selected_window = self
 		EDITOR.selected_nodes.append(self)
 		EDITOR.get_node("canvas/swatchboard").load_tools(selected_tools)
-
+		var layers = $canv/layers.get_children()
+		active_layer = layers[len(layers) - 1]
+		self.active = true
+		return
+	EDITOR.tool.do_select(active_layer)
+	
 func _process(delta):
 	if dragging:
 		var mouse_pos = get_viewport().get_mouse_position()

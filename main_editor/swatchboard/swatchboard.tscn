@@ -89,6 +89,20 @@ offset_right = 388.0
 offset_bottom = 1073.0
 mouse_filter = 1
 
+[node name="enterareatop" type="Container" parent="."]
+layout_mode = 2
+offset_left = -1228.0
+offset_right = 393.0
+offset_bottom = 38.0
+mouse_filter = 2
+
+[node name="enterareaswatch" type="Container" parent="."]
+layout_mode = 2
+offset_left = 1.0
+offset_right = 393.0
+offset_bottom = 1074.0
+mouse_filter = 2
+
 [node name="leavearea" type="Container" parent="."]
 layout_mode = 0
 offset_left = -932.0
@@ -100,4 +114,6 @@ offset_bottom = 1080.0
 [connection signal="item_activated" from="swatchboardbg/toolboxunder/toolbox" to="." method="_on_toolbox_item_selected"]
 [connection signal="item_clicked" from="swatchboardbg/toolboxunder/toolbox" to="." method="_on_toolbox_item_selected"]
 [connection signal="item_selected" from="swatchboardbg/toolboxunder/toolbox" to="." method="_on_toolbox_item_selected"]
+[connection signal="mouse_entered" from="enterareatop" to="." method="_on_swatchboard_mouse_entered"]
+[connection signal="mouse_entered" from="enterareaswatch" to="." method="_on_swatchboard_mouse_entered"]
 [connection signal="mouse_entered" from="leavearea" to="." method="_on_leavearea_mouse_entered"]
