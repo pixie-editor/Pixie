@@ -28,7 +28,6 @@ func _on_anim_animation_finished(anim_name):
 			$anim.play("new_user")
 		return
 	EDITOR.visible = true
-	EDITOR.get_node("canvas").visible = true
 	EDITOR.enabled = true
 	EDITOR.get_node("ui_animator").play("editor_in")
 	queue_free()

@@ -156,11 +156,14 @@ class BaseBrush:
 		var swatch_sel = swatch_sel_sc.instantiate()
 		var brushbox = swatch_sel.get_node("brushbox")
 		brushbox.size = Vector2(50, 50)
+		brushbox.item_selected.connect(change_brush)
 		for brush in Nodes.brushes:
 			var text = ImageTexture.create_from_image(brush.preview_image)
 			brushbox.add_item(brush.name, text)
-			print(brush.name)
 		return([swatch_sel])
+	func change_brush(num : int):
+		brush = Nodes.brushes[num]
+		set_cursor()
 
 class Select:
 	extends Tool

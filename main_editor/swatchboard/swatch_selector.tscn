@@ -38,7 +38,7 @@ offset_right = 387.0
 offset_bottom = 297.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wngua")
 icon_scale = 0.7
-fixed_icon_size = Vector2i(32, 32)
+fixed_icon_size = Vector2i(30, 30)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

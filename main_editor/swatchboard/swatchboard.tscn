@@ -23,7 +23,7 @@ offset_right = 395.0
 offset_bottom = 1080.0
 color = Color(0.688992, 0.377824, 0.522025, 1)
 
-[node name="Button" type="Button" parent="swatchboardbg"]
+[node name="toolsb" type="Button" parent="swatchboardbg"]
 layout_mode = 0
 offset_left = 119.0
 offset_top = -42.0
@@ -32,20 +32,20 @@ text = "tools"
 icon = ExtResource("3_kwn18")
 icon_alignment = 2
 
-[node name="Button2" type="Button" parent="swatchboardbg"]
+[node name="nodesb" type="Button" parent="swatchboardbg"]
 layout_mode = 0
 offset_top = -42.0
 offset_right = 119.0
 text = "nodes"
 
-[node name="Button3" type="Button" parent="swatchboardbg"]
+[node name="imageb" type="Button" parent="swatchboardbg"]
 layout_mode = 0
 offset_left = 213.0
 offset_top = -42.0
 offset_right = 333.0
 text = "image"
 
-[node name="Button4" type="Button" parent="swatchboardbg"]
+[node name="closeb" type="Button" parent="swatchboardbg"]
 layout_mode = 0
 offset_left = 333.0
 offset_top = -42.0
@@ -72,7 +72,6 @@ max_text_lines = 8
 item_count = 1
 max_columns = 4
 icon_mode = 0
-item_0/text = ""
 
 [node name="toolboxoptions" type="GridContainer" parent="swatchboardbg"]
 layout_mode = 0
@@ -111,6 +110,7 @@ offset_bottom = 1080.0
 
 [connection signal="mouse_entered" from="swatchboardbg" to="." method="_on_swatchboard_mouse_entered"]
 [connection signal="mouse_exited" from="swatchboardbg" to="." method="_on_swatchboardbg_mouse_exited"]
+[connection signal="pressed" from="swatchboardbg/closeb" to="." method="_on_closeb_pressed"]
 [connection signal="item_activated" from="swatchboardbg/toolboxunder/toolbox" to="." method="_on_toolbox_item_selected"]
 [connection signal="item_clicked" from="swatchboardbg/toolboxunder/toolbox" to="." method="_on_toolbox_item_selected"]
 [connection signal="item_selected" from="swatchboardbg/toolboxunder/toolbox" to="." method="_on_toolbox_item_selected"]

@@ -17,14 +17,15 @@ func _on_open_men_pressed():
 	var fmenu_scene = load("res://main_editor/dialogs/files.tscn")
 	EDITOR.get_node("ui_animator").play("file_close")
 	EDITOR.menuopen[1] = false
-	EDITOR.get_node("canvas/popups").add_child(fmenu_scene.instantiate())
+	EDITOR.get_node("popups").add_child(fmenu_scene.instantiate())
+
 func _on_new_image_pressed():
 	var image_window_scene = load("res://main_editor/pixie_image/pixie_image_window.tscn")
 	var image_window = image_window_scene.instantiate()
 	image_window.image_name = "new"
 	image_window.canvas_size = Vector2(100, 100)
-	EDITOR.get_node("windows").add_child(image_window)
-	EDITOR.get_node("canvas/popups").visible = false
+	EDITOR.get_node("mainview/SubViewport/windows").add_child(image_window)
+	EDITOR.get_node("popups").visible = false
 	EDITOR.get_node("ui_animator").play("file_close")
 	
 

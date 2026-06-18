@@ -1,4 +1,5 @@
 extends Control
+@onready var maincam = $mainview/SubViewport/maincam
 const version = "1-a"
 var menuopen = [false, false, false, false]
 var current_path = ""
@@ -22,15 +23,15 @@ func _process(delta):
 	# camera zoom
 	if not enabled:
 		return
-	var curr_zoom = $maincam.zoom
+	var curr_zoom = maincam.zoom
 	if Input.is_action_just_released("zoom_out") and zoom_level > ZOOM_MIN:
 		zoom_level -= ZOOM_SPEED
 		curr_zoom -= Vector2(ZOOM_SPEED, ZOOM_SPEED)
-		$maincam.zoom = curr_zoom
+		maincam.zoom = curr_zoom
 	elif Input.is_action_just_released("zoom_in") and zoom_level < ZOOM_MAX:
 		zoom_level += ZOOM_SPEED
 		curr_zoom += Vector2(ZOOM_SPEED, ZOOM_SPEED)
-		$maincam.zoom = curr_zoom
+		maincam.zoom = curr_zoom
 	if DRAGGING:
 		pass
 	if CURSOR != null:
@@ -42,13 +43,13 @@ func _process(delta):
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	if input_vector.y == -1:
-		$maincam.position.y -= SPEED
+		maincam.position.y -= SPEED
 	elif input_vector.y == 1:
-		$maincam.position.y += SPEED
+		maincam.position.y += SPEED
 	if input_vector.x == -1:
-		$maincam.position.x -= SPEED
+		maincam.position.x -= SPEED
 	elif input_vector.x == 1:
-		$maincam.position.x += SPEED
+		maincam.position.x += SPEED
 
 func _on_file_men_pressed():
 	var open = menuopen[1]
@@ -73,4 +74,3 @@ func load_tools(message : Label, prog : ProgressBar):
 func load_ps(path : String):
 	var actions : Dictionary = {}
 	var loaded_data = ""
-
